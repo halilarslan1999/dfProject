@@ -1,4 +1,4 @@
-package dfPack.base;
+package dfPack.test.base;
 
 
 import java.io.File;
@@ -6,8 +6,6 @@ import java.io.File;
 import org.testng.ITestResult;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -15,7 +13,6 @@ import dfPack.pages.LoginPage;
 import dfPack.utilities.BrowserUtils;
 import dfPack.utilities.ExtentManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -205,7 +202,7 @@ public class BaseTest {
         Assert.fail(message);
 
     }
-    public static String getScreenshot(String name) throws IOException {
+/*    public static String getScreenshot(String name) throws IOException {
         // name the screenshot with the current date time to avoid duplicate name
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         // TakesScreenshot ---> interface from selenium which takes screenshots
@@ -219,7 +216,7 @@ public class BaseTest {
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
         return target;
-    }
+    }*/
 
     @AfterMethod
     public void tearDown(ITestResult result) throws InterruptedException, IOException {
@@ -228,7 +225,7 @@ public class BaseTest {
             //record the name of failed case
             extendlogger.fail(result.getName());
             //take the screenshot
-            String screenShotPath= getScreenshot(result.getName());
+            String screenShotPath= BrowserUtils.getScreenshot(result.getName());
             //add your screenshot to your report
             extendlogger.addScreenCaptureFromPath(screenShotPath);
             //capture the exception and put inside the report

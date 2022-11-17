@@ -1,3 +1,4 @@
+/*
 package dfPack.pages;
 
 import dfPack.utilities.BrowserUtils;
@@ -19,28 +20,8 @@ public abstract class BasePage {
 
 
 
-    public void navigateToModule(String tab, String module) {
-        String tabLocator = "//span[normalize-space()='"+tab+"']";
-        String moduleLocator = "//span[.='"+module+"']";
-
-        try {
-            BrowserUtils.waitForClickablility(By.xpath(tabLocator), 5);
-            WebElement tabElement = driver.findElement(By.xpath(tabLocator));
-            new Actions(driver).moveToElement(tabElement).pause(200).doubleClick(tabElement).build().perform();
-        } catch (Exception e) {
-            BrowserUtils.clickWithWait(By.xpath(tabLocator), 5);
-        }
-        try {
-            BrowserUtils.waitForPresenceOfElement(By.xpath(moduleLocator), 5);
-            BrowserUtils.waitForVisibility(By.xpath(moduleLocator), 5);
-            BrowserUtils.scrollToElement(driver.findElement(By.xpath(moduleLocator)));
-            driver.findElement(By.xpath(moduleLocator)).click();
-        } catch (Exception e) {
-            BrowserUtils.clickWithTimeOut(driver.findElement(By.xpath(moduleLocator)),  5);
-
-        }
-    }
 
 
 
-}
+
+}*/

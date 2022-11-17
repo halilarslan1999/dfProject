@@ -6,8 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class LoginPage extends BasePage{
+public class LoginPage {
     WebDriver driver;
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
     @FindBy(xpath = "//span[text()='Accept All Cookies']")
     public WebElement cookieBtn;
@@ -39,10 +43,6 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "(//p[text()='CRM'])[1]")
     public WebElement CRMVerification;
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
 
 
     /*   @FindBy(css = ".menu-list")

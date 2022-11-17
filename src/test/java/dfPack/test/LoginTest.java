@@ -2,8 +2,7 @@ package dfPack.test;
 
 import java.util.HashMap;
 
-import com.relevantcodes.extentreports.LogStatus;
-import dfPack.base.BaseTest;
+import dfPack.test.base.BaseTest;
 import dfPack.utilities.*;
 import org.testng.SkipException;
 import org.testng.annotations.*;
